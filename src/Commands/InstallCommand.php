@@ -87,7 +87,7 @@ class InstallCommand extends CatchCommand
                 // 创建软连接
                 $this->createStorageLink();
                 // 安装前端
-                $this->installed();
+#                $this->installed();
             }
             // 展示信息
             $this->showInfo();
@@ -344,6 +344,11 @@ class InstallCommand extends CatchCommand
         config()->set('database.connections.'.$this->defaultConnection.'.password', $dbPassword);
         config()->set('database.connections.'.$this->defaultConnection.'.prefix', $prefix);
 
+
+        //设置缓存和session
+        config()->set('cache.default', 'file');
+        config()->set('cache.driver', 'file');
+
         $this->info("正在创建数据库[$databaseName]...");
 
         $this->createDatabase($databaseName, $this->defaultConnection);
@@ -447,12 +452,10 @@ class InstallCommand extends CatchCommand
 
         $this->addPsr4Autoload();
 
-        $this->info('🎉 CatchAdmin 已安装, 欢迎!');
+        $this->info('🎉 CatchAdmin P 已安装, 欢迎!');
 
         $this->isFinished = true;
 
-        // 安装插件管理
-        command('catch:plugin-install');
     }
 
     /**

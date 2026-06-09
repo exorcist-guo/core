@@ -144,7 +144,7 @@ return [
    |--------------------------------------------------------------------------
    */
     'route' => [
-        'prefix' => 'api',
+        'prefix' => 'adminapi',
 
         'middlewares' => [
             AuthMiddleware::class,
