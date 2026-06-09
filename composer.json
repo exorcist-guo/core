@@ -1,5 +1,5 @@
 {
-    "name": "catchadmin/core",
+    "name": "exorcist-guo/core",
     "description": "catch admin core package",
     "type": "library",
     "require": {
